@@ -4,18 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WebPost">
+    tools:context=".WebPost"
+    android:background="#2ab0ff">
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:stretchColumns="1">
+
+        <com.webutil.badcw.layoutXML.TitleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <TableRow>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="队伍名" />
+                android:text="队伍名"
+                android:textColor="#000"/>
             <EditText
                 android:id="@+id/team_name"
                 android:layout_width="wrap_content"
@@ -25,7 +31,9 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="#000"
+                android:textColorHint="#ddd"/>
         </TableRow>
 
         <TableRow>
@@ -33,7 +41,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="学校" />
+                android:text="学校"
+                android:textColor="#000"/>
             <EditText
                 android:id="@+id/college"
                 android:layout_width="wrap_content"
@@ -43,7 +52,9 @@
                 android:inputType="text|textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/team_name" />
+                app:layout_constraintTop_toBottomOf="@+id/team_name"
+                android:textColor="#000"
+                android:textColorHint="#ddd"/>
         </TableRow>
 
         <TableRow>
@@ -51,7 +62,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="队长电话号码" />
+                android:text="队长电话号码"
+                android:textColor="#000"/>
 
             <EditText
                 android:id="@+id/phone_number"
@@ -62,7 +74,9 @@
                 android:inputType="phone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/college" />
+                app:layout_constraintTop_toBottomOf="@+id/college"
+                android:textColor="#000"
+                android:textColorHint="#ddd"/>
         </TableRow>
 
         <TableRow>
@@ -70,7 +84,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="队长名字" />
+                android:text="队长名字"
+                android:textColor="#000"/>
             <EditText
                 android:id="@+id/leader"
                 android:layout_width="wrap_content"
@@ -80,7 +95,9 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+                app:layout_constraintTop_toBottomOf="@+id/phone_number"
+                android:textColor="#000"
+                android:textColorHint="#ddd"/>
         </TableRow>
 
         <TableRow>
@@ -88,7 +105,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="队员1" />
+                android:text="队员1"
+                android:textColor="#000"/>
             <EditText
                 android:id="@+id/member1"
                 android:layout_width="wrap_content"
@@ -98,7 +116,9 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/leader" />
+                app:layout_constraintTop_toBottomOf="@+id/leader"
+                android:textColor="#000"
+                android:textColorHint="#ddd"/>
         </TableRow>
 
         <TableRow>
@@ -106,7 +126,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="队员2" />
+                android:text="队员2"
+                android:textColor="#000"/>
             <EditText
                 android:id="@+id/member2"
                 android:layout_width="wrap_content"
@@ -116,13 +137,15 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/member1" />
+                app:layout_constraintTop_toBottomOf="@+id/member1"
+                android:textColor="#000"
+                android:textColorHint="#ddd"/>
         </TableRow>
 
         <TableRow>
 
             <Button
-                android:id="@+id/test_button"
+                android:id="@+id/submit_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="2"
@@ -130,7 +153,25 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/member2" />
+                app:layout_constraintTop_toBottomOf="@+id/member2"
+                android:background="#ffade8"
+                android:textColor="#000"/>
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="2"
+                android:text="清空"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/member2"
+                android:background="#ffade8"
+                android:textColor="#000"/>
         </TableRow>
 
     </TableLayout>

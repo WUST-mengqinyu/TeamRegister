@@ -41,14 +41,14 @@ public class WebPost extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_post);
-        Button test = findViewById(R.id.test_button);
+        Button submit = findViewById(R.id.submit_button);
         team_name = findViewById(R.id.team_name);
         college = findViewById(R.id.college);
         phone_number = findViewById(R.id.phone_number);
         leader = findViewById(R.id.leader);
         member1 = findViewById(R.id.member1);
         member2 = findViewById(R.id.member2);
-        test.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //get string
@@ -69,6 +69,18 @@ public class WebPost extends AppCompatActivity {
                     }.start();
                 }
                 handler.sendEmptyMessage(0x123);
+            }
+        });
+        Button clearButton = findViewById(R.id.clear_button);
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                team_name.setText("");
+                college.setText("");
+                phone_number.setText("");
+                leader.setText("");
+                member1.setText("");
+                member2.setText("");
             }
         });
     }
