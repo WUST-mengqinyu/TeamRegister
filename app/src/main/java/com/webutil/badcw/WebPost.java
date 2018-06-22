@@ -1,5 +1,8 @@
 package com.webutil.badcw;
 
+import com.webutil.badcw.utils.GetCorrect;
+import com.webutil.badcw.utils.giveBack;
+import com.webutil.badcw.utils.message;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
@@ -8,15 +11,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.webutil.badcw.utils.GetPostUtil;
+import com.webutil.badcw.utils.message;
 
 public class WebPost extends AppCompatActivity {
 
-    public final int MAX_LENGTH = 10;
-    String response;
+    public static final int MAX_LENGTH = 10;
     EditText team_name, college, phone_number, leader, member1, member2;
-    String team_name_string, college_string, phone_number_string, leader_string, member1_string, member2_string;
+    giveBack response;
     Handler handler = new Handler() {
         @Override
         public void handleMessage (Message msg) {
@@ -24,7 +27,7 @@ public class WebPost extends AppCompatActivity {
 //                Toast.makeText(WebPost.this, "success", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder builder = new AlertDialog.Builder(WebPost.this);
                 builder.setTitle("确认");
-                builder.setMessage("注册成功请等待短信消息");
+                builder.setMessage(response.getInfo());
                 builder.setPositiveButton("我知道了", null);
                 builder.show();
             } else {
@@ -52,20 +55,23 @@ public class WebPost extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //get string
-                team_name_string = team_name.getText().toString();
-                college_string = college.getText().toString();
-                phone_number_string = phone_number.getText().toString();
-                leader_string = leader.getText().toString();
-                member1_string = member1.getText().toString();
-                member2_string = member2.getText().toString();
-                new Thread() {
-                    @Override
-                    public void run() {
-                        response = GetPostUtil.sendPost("http://verly-badcw.top/space/content/php/register_test.php", String.format("team_name=%s&college=%s&phone_number=%s&leader=%s&member1=%s&member2=%s", team_name_string, college_string, phone_number_string, leader_string, member1_string, member2_string));
-                    }
-                }.start();
+                final message x = new message();
+                x.team_name_string = team_name.getText().toString();
+                x.college_string = college.getText().toString();
+                x.phone_number_string = phone_number.getText().toString();
+                x.leader_string = leader.getText().toString();
+                x.member1_string = member1.getText().toString();
+                x.member2_string = member2.getText().toString();
+                response = GetCorrect.getCorrect(x);
+                if (response.getres()) {
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            x.getResponse();
+                        }
+                    }.start();
+                }
                 handler.sendEmptyMessage(0x123);
-//                GetPostUtil.sendPost("http://verly-badcw.top/space/content/php/chat_send_ajax.php", "msg=hello app");
             }
         });
     }

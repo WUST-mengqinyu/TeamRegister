@@ -1,4 +1,4 @@
-package com.webutil.badcw;
+package com.webutil.badcw.utils;
 
 import android.util.Log;
 
