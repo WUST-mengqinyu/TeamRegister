@@ -31,7 +31,6 @@ public class GetPostUtil {
             conn.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0");
             conn.setDoInput(true);
             conn.setDoOutput(true);
-            //获取输出流
             out = new PrintWriter(conn.getOutputStream());
             out.print(params);
             out.flush();
@@ -61,5 +60,4 @@ public class GetPostUtil {
         }
         return res;
     }
-
 }

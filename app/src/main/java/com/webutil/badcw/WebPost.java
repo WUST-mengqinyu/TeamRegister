@@ -12,9 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.webutil.badcw.utils.GetPostUtil;
-import com.webutil.badcw.utils.message;
-
 public class WebPost extends AppCompatActivity {
 
     public static final int MAX_LENGTH = 10;
