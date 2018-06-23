@@ -26,7 +26,7 @@ public class TitleLayout extends LinearLayout {
         titleSettings.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "this struction has not been make full!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "this structure has not been made full!", Toast.LENGTH_SHORT).show();
             }
         });
     }

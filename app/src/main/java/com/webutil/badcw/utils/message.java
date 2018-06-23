@@ -1,6 +1,8 @@
 package com.webutil.badcw.utils;
 
-public class message {
+import java.io.Serializable;
+
+public class message implements Serializable {
     public String team_name_string, college_string, phone_number_string, leader_string, member1_string, member2_string;
     private String responese = "";
 

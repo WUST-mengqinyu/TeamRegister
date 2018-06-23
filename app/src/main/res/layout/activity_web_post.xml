@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WebPost"
-    android:background="#2ab0ff">
+    android:background="#fff">
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -127,7 +127,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="队员2"
-                android:textColor="#000"/>
+                android:textColor="#000" />
+
             <EditText
                 android:id="@+id/member2"
                 android:layout_width="wrap_content"
@@ -135,12 +136,13 @@
                 android:ems="10"
                 android:hint="member2"
                 android:inputType="textPersonName"
+                android:textColor="#000"
+                android:textColorHint="#ddd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/member1"
-                android:textColor="#000"
-                android:textColorHint="#ddd"/>
+                app:layout_constraintTop_toBottomOf="@+id/member1" />
         </TableRow>
+
 
         <TableRow>
 
@@ -148,30 +150,19 @@
                 android:id="@+id/submit_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_span="2"
-                android:text="提交"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/member2"
-                android:background="#ffade8"
-                android:textColor="#000"/>
-        </TableRow>
+                android:layout_weight="1"
+                android:text="提交" />
 
+        </TableRow>
         <TableRow>
 
             <Button
                 android:id="@+id/clear_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_span="2"
-                android:text="清空"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/member2"
-                android:background="#ffade8"
-                android:textColor="#000"/>
+                android:layout_weight="1"
+                android:text="清空" />
+
         </TableRow>
 
     </TableLayout>

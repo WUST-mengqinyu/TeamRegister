@@ -3,6 +3,8 @@ package com.webutil.badcw;
 import com.webutil.badcw.utils.GetCorrect;
 import com.webutil.badcw.utils.giveBack;
 import com.webutil.badcw.utils.message;
+
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
@@ -16,7 +18,7 @@ public class WebPost extends AppCompatActivity {
 
     public static final int MAX_LENGTH = 10;
     EditText team_name, college, phone_number, leader, member1, member2;
-    giveBack response;
+    public static giveBack response;
     Handler handler = new Handler() {
         @Override
         public void handleMessage (Message msg) {
@@ -52,7 +54,7 @@ public class WebPost extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //get string
-                final message x = new message();
+                message x = new message();
                 x.team_name_string = team_name.getText().toString();
                 x.college_string = college.getText().toString();
                 x.phone_number_string = phone_number.getText().toString();
@@ -61,14 +63,15 @@ public class WebPost extends AppCompatActivity {
                 x.member2_string = member2.getText().toString();
                 response = GetCorrect.getCorrect(x);
                 if (response.getres()) {
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            x.getResponse();
-                        }
-                    }.start();
+                    Bundle data = new Bundle();
+                    data.putSerializable("team", x);
+                    Intent intent = new Intent(WebPost.this, ConfirmActivity.class);
+                    intent.putExtras(data);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    handler.sendEmptyMessage(0x123);
                 }
-                handler.sendEmptyMessage(0x123);
             }
         });
         Button clearButton = findViewById(R.id.clear_button);

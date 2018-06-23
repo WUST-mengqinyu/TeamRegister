@@ -18,9 +18,10 @@ android {
     }
 
     android.applicationVariants.all {
-        variant -> variant.outputs.all {
-            outputFileName = "register_v${versionName}.apk";
-        }
+        variant ->
+            variant.outputs.all {
+                outputFileName = "register_v${versionName}.apk";
+            }
     }
 }
 
